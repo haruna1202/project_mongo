@@ -1,0 +1,210 @@
+/* ==== RESET QUAN TRỌNG: không để input phình quá khung ==== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* ============ Layout chính ============ */
+body {
+  display: flex;
+  margin: 0;
+  height: 100vh;
+  background-color: #faf6ef;
+  font-family: 'Poppins', sans-serif;
+}
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+
+
+/* ============ Bên trái: Form đăng nhập ============ */
+.form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffdf9;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.08) 5px 0px 15px;
+  padding: 0 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(180deg, #fff9f0 0%, #f9e9c6 100%);
+  border-radius: 25px;
+  padding: 35px;
+  border: 3px solid #f2e2c4;
+  box-shadow: 0 10px 25px rgba(135, 70, 10, 0.25), 0 6px 8px rgba(150, 85, 30, 0.15);
+}
+
+
+.heading {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;   
+  font-weight: 700;
+  font-size: 26px;
+  color: #7b3e19;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;                    /* ↓ Giảm khoảng cách dưới */
+}
+
+
+/* ==== RESET QUAN TRỌNG: không để input phình quá khung ==== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Form canh cột + khoảng cách đều */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap:12px;           /* thay cho margin-top từng input */
+  margin-top: 8px;
+  align-items: flex-start;
+}
+
+/* Textbox vừa khít khung container */
+.form .input {
+  width: 100%;        
+  min-width: 0;        
+  height: 56px;        
+  padding: 0 20px;     
+  border: none;        
+  border-radius: 22px; 
+  background: #fff;
+  font-size: 16px;    
+  box-shadow: rgba(139,96,44,0.12) 0 8px 10px -5px;
+}
+
+.form .input::placeholder { color: #a78b7a; }
+.form .input:focus {
+  outline: none;
+  border: 2px solid #c9923d;   /* border hiển thị nhưng không làm tràn vì box-sizing */
+}
+
+
+.form .forgot-password {
+  display: block;
+  margin-top: 4.6px;
+  margin-left: 10px;
+  margin-left: 0;
+  text-align: left;
+}
+
+.form .forgot-password a {
+  font-size: 12px;
+  color: #b36b2a;
+  text-decoration: none;
+}
+
+.form .login-button {
+  display: postion;
+  width: 100%;
+  font-weight: 600;
+  background: linear-gradient(45deg, #a85b28 0%, #d4a55d 100%);
+  color: white;
+  padding-block: 12px;
+  margin: 5px ;
+  border-radius: 20px;
+  box-shadow: rgba(139, 96, 44, 0.2) 0px 10px 10px -5px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(139, 96, 44, 0.35) 0px 15px 15px -10px;
+}
+
+.form .login-button:active {
+  transform: scale(0.96);
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 13px;
+  color: #7b3e19;
+}
+
+.footer-text a {
+  color: #a35624;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ============ Bên phải: Hình ảnh ============ */
+.image-section {
+  flex: 1;
+  background-image: url("../images/product/quangcao.png");
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+}
+
+.image-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(60, 30, 10, 0.35);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 45px;
+}
+
+.logo h1 {
+  color: #f5d79c;
+  font-family: "Georgia", serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* ============ FOOTER ============ */
+/* ===== Footer nhỏ dưới form ===== */
+.footer-note {
+  margin-top: 12px;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-size: 13px;
+  color: #7b3e19;
+  opacity: 0.85;
+}
+/* Hiệu ứng xuất hiện nhẹ cho container */
+.container {
+  animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============ END ============ */

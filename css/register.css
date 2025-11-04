@@ -1,0 +1,136 @@
+body {
+  display: flex;
+  margin: 0;
+  height: 100vh;
+  background-color: #faf6ef;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Cột trái chứa form */
+.left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(180deg, #fff9f0 0%, #f9e9c6 100%);
+  border-radius: 25px;
+  padding: 35px;
+  border: 3px solid #f2e2c4;
+  box-shadow: 0 10px 25px rgba(135, 70, 10, 0.25), 0 6px 8px rgba(150, 85, 30, 0.15);
+}
+.form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffdf9;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.08) 5px 0px 15px;
+  padding: 0 30px;
+}
+
+
+.container h2 {
+  font-size: 26px;
+  color: #6e3412;
+  margin-bottom: 20px;
+  
+}
+
+/* Input box */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form .input {
+  width: 90%; /* 🔹 Fix lệch phải */
+  background: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin-top: 15px;
+  box-shadow: rgba(209, 170, 120, 0.25) 0px 6px 10px -3px;
+  border-inline: 2px solid transparent;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.form .input:focus {
+  outline: none;
+  border-inline: 2px solid #c86f1a;
+  box-shadow: 0 0 8px rgba(200, 110, 25, 0.4);
+}
+
+/* Button */
+.login-button {
+  width: 90%; /* Căn theo input */
+  background: linear-gradient(45deg, #a85a1f, #d9a362);
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  margin-top: 25px;
+  box-shadow: 0 6px 14px rgba(150, 80, 30, 0.25);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 18px rgba(155, 90, 40, 0.35);
+}
+
+.footer-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #5a2f12;
+}
+
+.footer-text a {
+  color: #8b3e19;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #7b3e19;
+  opacity: 0.85;
+  text-align: center;
+}
+
+
+/* Ảnh bên phải */
+.right {
+  width: 50%;
+  background: url("../images/product/quangcao.png") center/cover no-repeat;
+  border-radius: 0 0 0 50px;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.15); /* 🔹 Làm mờ viền ảnh nhẹ cho ấm */
+}
+/* Hiệu ứng xuất hiện nhẹ cho container */
+.container {
+  animation: fadeUp 0.8s ease-out;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

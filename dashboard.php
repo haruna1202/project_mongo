@@ -76,7 +76,7 @@
       </div>
 
         <div class="intro-image">
-         <img src="../images/product/vat_pham.png" alt="Tượng Phật và chuỗi hạt" class="intro-img">
+         <img src="./images/product/vat_pham.png" alt="Tượng Phật Di Lặc bằng gỗ và chuỗi hạt đá phong thủy được bày trang nghiêm trên nền vải trơn, tạo không gian thanh tịnh và an lành" class="intro-img">
       </div>
     </div>
   </section>

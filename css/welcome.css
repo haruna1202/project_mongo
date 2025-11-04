@@ -1,0 +1,176 @@
+/*  From Uiverse.io by Li-Deheng */
+/* Reset + font chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Nền trang */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('../images/product/quangcao.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Lớp phủ mờ */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(147, 56, 56, 0.75);
+  z-index: 1;
+}
+
+/* Khung chào */
+.popup {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 2s ease;
+}
+
+/* Tiêu đề */
+.popup h1 {
+  font-size: 2em;
+  color: #E8C479;
+  margin-bottom: 15px;
+}
+
+/* Nội dung */
+.popup p {
+  font-size: 1.1em;
+  color: #fcebd0;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+/* ==========================================
+   Button "Khám Phá Ngay"
+========================================== */
+.button {
+  --main-size: 1.5em;
+  --color-text: #3A2E2E;                /* chữ nâu trầm */
+  --color-background: #E8C479;          /* vàng đồng chủ đạo */
+  --color-background-hover: #f5d994;    /* vàng sáng khi hover */
+  --color-outline: #E8C47980;           /* viền vàng nhạt khi ripple */
+  --color-shadow: #5E242440;            /* đổ bóng đỏ nâu */
+   margin: 0 auto;             
+  justify-content: center;     
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  border-radius: calc(var(--main-size) * 100);
+  padding: 0.33em 0 0.33em 0.66em;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: var(--main-size);
+  color: var(--color-text);
+  background: var(--color-background);
+  box-shadow: 0 0 0.2em 0 var(--color-shadow);
+  transition: 1s;
+}
+/* Hiệu ứng nhấn nút*/
+.button:active {
+  transform: scale(0.95);
+}
+/* Hiệu ứng hover nút */
+.button:hover {
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 1em 0 var(--color-outline);
+  animation:
+    ripple 1s linear infinite,
+    colorize 1s infinite;
+  transition: 0.5s;
+}
+/* Căn chỉnh chữ và icon trong nút */
+.button span {
+  margin-right: 0.3em;
+  transition: 0.5s;
+}
+/* Hiệu ứng chữ khi hover */
+.button:hover span {
+  text-shadow: 3px 3px 4px var(--color-shadow);
+}
+/* Căn chỉnh icon SVG trong nút */
+.button svg {
+  height: 0.8em;
+  fill: var(--color-text);
+  margin-right: -0.16em;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button:hover svg {
+  margin-right: 0.66em;
+  transition: 0.5s;
+  filter: drop-shadow(3px 3px 2px var(--color-shadow));
+}
+
+.button svg polygon:nth-child(1) {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.button svg polygon:nth-child(2) {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.button:hover svg polygon:nth-child(1) {
+  transform: translateX(0%);
+  animation: opacity 1s infinite 0.6s;
+}
+
+.button:hover svg polygon:nth-child(2) {
+  transform: translateX(0%);
+  animation: opacity 1s infinite 0.4s;
+}
+
+.button:hover svg polygon:nth-child(3) {
+  animation: opacity 1s infinite 0.2s;
+}
+
+/* ==============================
+   Animations for button effects
+============================== */
+@keyframes opacity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes colorize {
+  0%, 100% { background: var(--color-background); }
+  50% { background: var(--color-background-hover); }
+}
+
+@keyframes ripple {
+  0% {
+    outline: 0em solid transparent;
+    outline-offset: -0.1em;
+  }
+  50% {
+    outline: 0.2em solid var(--color-outline);
+    outline-offset: 0.2em;
+  }
+  100% {
+    outline: 0.4em solid transparent;
+    outline-offset: 0.4em;
+  }
+}
