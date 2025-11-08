@@ -13,14 +13,14 @@
     <div class="container">
       <h2>Đăng Ký</h2>
 
-      <form class="form">
-        <input type="text" name="fullname" placeholder="Họ và tên" required class="input">
-        <input type="email" name="email" placeholder="Email" required class="input">
-        <input type="password" name="password" placeholder="Mật khẩu" required class="input">
-        <input type="password" name="confirm_password" placeholder="Nhập lại mật khẩu" required class="input">
-        <button type="submit" class="login-button">Tạo Tài Khoản</button>
+      <form class="form" action="register_handler.php" method="POST">
+        <input name="hoten"    placeholder="Họ và tên" type="text"     class="input" required />
+        <input name="email"    placeholder="Email"     type="email"    class="input" required />
+        <input name="password" placeholder="Mật khẩu"  type="password" class="input" required minlength="6" />
+        <input name="confirm"  placeholder="Nhập lại mật khẩu" type="password" class="input" required minlength="6" />
+        <input value="Tạo Tài Khoản" type="submit" class="login-button" />
       </form>
-
+       
       <div class="footer-text">
         <p>Đã có tài khoản? <a href="login.php">Đăng nhập ngay</a></p>
       </div>

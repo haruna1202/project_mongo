@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "690988baad1c3e56b63f3ddd"
+  },
+  "Hoten": "Nguyen Van A",
+  "Email": "vana@example.com",
+  "Matkhau": "123456",
+  "Sdt": "0901234567",
+  "Diachi": "Cần Thơ, Việt Nam",
+  "Role": "user",
+  "Username": "naruto"
+},
+{
+  "_id": {
+    "$oid": "690b9178546b31b00f61d356"
+  },
+  "HoTen": "Admin",
+  "Email": "admin@vouuquan.local",
+  "Username": "admin",
+  "MatKhau": "admin123",
+  "Role": "admin",
+  "TrangThai": "active",
+  "NgayTao": {
+    "$date": "2024-11-04T06:00:00.000Z"
+  }
+}]

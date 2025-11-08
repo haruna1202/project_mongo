@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "6909f2694f5faabfc60cc092"
+  },
+  "Hoten": "Nguyen Van A",
+  "Email": "vana@example.com",
+  "DiaChi": "Ninh Kiều, Cần Thơ",
+  "SanPhamMua": [
+    {
+      "Tensanpham": "Vòng Tay Chu Sa 10mm",
+      "Loaihang": "Vòng Tay Phong Thủy",
+      "SoLuong": 1,
+      "Gia": 379000
+    },
+    {
+      "Tensanpham": "Tượng Phật Di Lặc Hoan Hỷ",
+      "Loaihang": "Tượng Phật Mini",
+      "SoLuong": 1,
+      "Gia": 799000
+    }
+  ],
+  "TongTien": 1178000,
+  "PhuongThuc": "COD",
+  "TrangThai": "Hoàn tất",
+  "NgayMua": {
+    "$date": "2025-11-04T09:45:00.000Z"
+  }
+}]

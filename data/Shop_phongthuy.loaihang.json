@@ -1,0 +1,28 @@
+[{
+  "0": {
+    "Tenloai": "Vòng Tay Chuỗi Hạt",
+    "Mota": "Các loại vòng tay phong thủy bằng đá, chỉ đỏ, mã não, thạch anh..."
+  },
+  "1": {
+    "Tenloai": "Tượng Phật Mini",
+    "Mota": "Tượng Phật phong thủy bằng gỗ, đồng, đá hoặc composite cao cấp."
+  },
+  "2": {
+    "Tenloai": "Nhang - Lư Xông Trầm",
+    "Mota": "Sản phẩm trầm hương, nhang thơm, lư xông trầm thủ công."
+  },
+  "3": {
+    "Tenloai": "Dây Chuyền Đá Phong Thủy",
+    "Mota": "Các vật phẩm thờ cúng như bát hương, chén nước, chân đèn, đèn dầu..."
+  },
+  "_id": {
+    "$oid": "690310c3ffeaa2938ee8e122"
+  }
+},
+{
+  "_id": {
+    "$oid": "6907302d3c0ee4ee41135227"
+  },
+  "Tenloai": "Móc Khóa Phong Thủy",
+  "Mota": "Móc khóa phong thủy bằng đá tự nhiên, mang lại năng lượng tích cực và may mắn."
+}]

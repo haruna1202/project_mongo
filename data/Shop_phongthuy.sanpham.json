@@ -1,0 +1,216 @@
+[{
+  "_id": {
+    "$oid": "69030ec8ffeaa2938ee8e11f"
+  },
+  "Tensanpham": "Vòng Tay Chỉ Đỏ Đá Chu Sa",
+  "Giaban": 379000,
+  "Mota": "Vòng tay chỉ đỏ đá Chu Sa giúp mang lại bình an, may mắn và tài lộc.",
+  "Tonkho": 20,
+  "Danhgia": 4.1,
+  "Loaihang": "Vòng Tay Phong Thủy",
+  "Hinhanh": "images\\products\\Vong-Tay-Chu-Sa-10mm.jpg"
+},
+{
+  "_id": {
+    "$oid": "69031213ffeaa2938ee8e126"
+  },
+  "Tensanpham": "Vòng Tay Chu Sa Ngũ Lộ Thần Tài Tỳ Hưu",
+  "Giaban": 199000,
+  "Mota": "Vòng Tay Chu Sa Ngũ Lộ Thần Tài Tỳ Hưu là sự kết hợp hoàn hảo giữa năng lượng tích cực của đá Chu Sa đỏ, Tỳ Hưu chiêu tài, và biểu tượng Ngũ Lộ Thần Tài – mang lại may mắn, bình an và thịnh vượng cho người đeo.",
+  "Tonkho": 10,
+  "Hinhanh": "images\\products\\Vong-Tay-Chu-Sa-Ngu-Lo-Than-Tai-Ty-Huu (1).jpg",
+  "Danhgia": 3.5,
+  "Loaihang": "Vòng Tay Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "6904ecd2eceff48e079b39cc"
+  },
+  "Tensanpham": "Vòng Tay Đá Aquamarine 10mm",
+  "Giaban": 219000,
+  "Mota": "Vòng Tay Đá Aquamarine 10mm – Trang sức sang trọng từ đá thiên nhiên, mang sắc xanh dịu mát như nước biển. Không chỉ tôn lên vẻ đẹp, chiếc vòng còn chứa đựng năng lượng phong thủy mạnh mẽ, giúp người đeo tìm thấy sự bình yên và tươi mới trong tâm hồn.",
+  "Tonkho": 5,
+  "hinhAnh": "images\\products\\Vong-Tay-Da-Aquamarine-10mm.jpg",
+  "Danhgia": 4.5,
+  "Loaihang": "Vòng Tay Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "6905ab8d40d26d455d215c2f"
+  },
+  "Tensanpham": "Vòng Tay Đá Mắt Hổ Xanh",
+  "Giaban": 229000,
+  "Mota": "Vòng Tay Đá Mắt Hổ Xanh Thiên Nhiên (4mm). Những viên đá tròn đều, sáng bóng kết hợp charm kim loại, tạo nên thiết kế thanh lịch và hiện đại. Món trang sức phong thủy tinh tế, dễ dàng kết hợp mọi trang phục, lý tưởng cho cả hai giới.",
+  "Tonkho": 12,
+  "hinhAnh": "images\\products\\Vong-Tay-Da-Mat-Ho-Xanh-4mm.jpg",
+  "Danhgia": 4,
+  "Loaihang": "Vòng Tay Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "6905bd2040d26d455d215c31"
+  },
+  "Tensanpham": "Tượng Gốm Phật Thích Ca Mâu Ni Cao",
+  "Giaban": 379000,
+  "Mota": "Vòng tay được chế tác từ gỗ trầm tự nhiên có mùi thơm dịu nhẹ, giúp an thần và mang lại năng lượng tích cực. Mỗi hạt trầm được gia công tỉ mỉ, điểm nhấn là hạt charm Phật thủ mạ vàng tượng trưng cho bình an, tài lộc và may mắn.",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\Tuong-Gom-Phat-Thich-Ca-Mau-Ni-Cao-15cm.jpg",
+  "Danhgia": 4.2,
+  "Loaihang": "Tượng Phật Mini"
+},
+{
+  "_id": {
+    "$oid": "6905c13940d26d455d215c33"
+  },
+  "Tensanpham": "Tượng Phật Thích Ca Thiền Định",
+  "Giaban": 799000,
+  "Mota": "Tượng Phật Thích Ca Mâu Ni Gốm Cao Cấp (15cm). Tác phẩm tâm linh tinh xảo, chất liệu gốm cao cấp. Tượng Đức Phật trong tư thế kiết già, song thủ thiền định, gương mặt thanh tịnh, hiền hòa.",
+  "Tonkho": 7,
+  "hinhAnh": "images\\products\\Tuong-Phat-Thich-Ca-Thien-Dinh.jpg",
+  "Danhgia": 3.8,
+  "Loaihang": "Tượng Phật Mini"
+},
+{
+  "_id": {
+    "$oid": "6905c41540d26d455d215c39"
+  },
+  "Tensanpham": "Tượng Phật Di Lặc Hoan Hỷ",
+  "Giaban": 799000,
+  "Mota": "Tượng Phật Di Lặc Hoan Hỷ là một tuyệt phẩm phong thủy với ý nghĩa sâu sắc, biểu trưng cho sự hoan hỉ, tài lộc dồi dào và cuộc sống viên mãn. Tác phẩm được chế tác thủ công tinh xảo từ chất liệu gốm tử sa cao cấp – loại gốm danh tiếng thường được sử dụng trong nghệ thuật trà đạo và điêu khắc tâm linh, đảm bảo độ bền đẹp và giá trị nghệ thuật cao.",
+  "Tonkho": 14,
+  "hinhAnh": "images\\products\\Tuong-Phat-Di-Lac-Hoan-Hy.jpg",
+  "Danhgia": 4.1,
+  "Loaihang": "Tượng Phật Mini"
+},
+{
+  "_id": {
+    "$oid": "69063dcce0ee7a964f2a7a09"
+  },
+  "Tensanpham": "Tượng Quan Âm Bồ Tát Ngồi Thiền",
+  "Giaban": 759000,
+  "Mota": "Tượng khắc họa Bồ Tát trong tư thế kiết già, hai tay chắp trang nghiêm. Chất liệu gốm sứ cao cấp với sắc thái thanh nhã, tinh tế. Gương mặt hiền từ, ánh mắt an nhiên, mang lại sự tịnh tâm.",
+  "Tonkho": 4,
+  "hinhAnh": "images\\products\\Tuong-Quan-Am-Bo-Tat-Ngoi-Thien.jpg",
+  "Danhgia": 4.4,
+  "Loaihang": "Tượng Phật Mini"
+},
+{
+  "_id": {
+    "$oid": "69063e88e0ee7a964f2a7a0b"
+  },
+  "Tensanpham": "Dây Chuyền Vòng Trăng Ánh Sao",
+  "Giaban": 299000,
+  "Mota": "Dây Chuyền Vòng Trăng Ánh Sao. Thiết kế tinh xảo, mô phỏng bầu trời đêm: vòng trăng khuyết và đá ngôi sao lấp lánh. Ngôi sao rủ tạo điểm nhấn sang trọng, dễ điều chỉnh, phù hợp mọi phong cách.",
+  "Tonkho": 10,
+  "hinhAnh": "images\\products\\Day-Chuyen-Vong-Trang-Anh-Sao.jpg",
+  "Danhgia": 4.9,
+  "Loaihang": "Dây Chuyền Đá Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "6907346e3c0ee4ee41135229"
+  },
+  "Tensanpham": "Dây Chuyền Đá Aquamarine",
+  "Giaban": 279000,
+  "Mota": "Dây Chuyền Đá Aquamarine Thiên Nhiên. Viên ngọc xanh biển trong vắt mang lại cảm giác tươi mát, thanh thoát.",
+  "Tonkho": 3,
+  "hinhAnh": "images\\products\\Day-Chuyen-Da-Aquamarine.jpg",
+  "Danhgia": 4.5,
+  "Loaihang": "Dây Chuyền Đá Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "690735073c0ee4ee4113522a"
+  },
+  "Tensanpham": "Dây Chuyền Pha Lê Ánh Trăng",
+  "Giaban": 259000,
+  "Mota": "Dây Chuyền Pha Lê Ánh Trăng – Phụ kiện sang trọng, tinh tế, đầy nữ tính. Mặt dây hình tròn nổi bật với viên đá lấp lánh như mặt trăng ở trung tâm. Viền pha lê được đính tỉ mỉ, tạo hiệu ứng ánh sáng rực rỡ khi di chuyển, thu hút mọi ánh nhìn..",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\Day-Chuyen-Pha-Le-Anh-Trang.jpg",
+  "Danhgia": 4.9,
+  "Loaihang": "Dây Chuyền Đá Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "690736513c0ee4ee4113522b"
+  },
+  "Tensanpham": "Dây Chuyền Đá Pha Lê Chuồn Chuồn",
+  "Giaban": 259000,
+  "Mota": "Thiết kế độc đáo: mặt đá pha lê hình quả đào, viền bạc sáng bóng, điểm xuyết chú chuồn chuồn. Sắc xanh nhạt nhẹ nhàng, thanh thoát, là phụ kiện phong thủy tinh tế, dễ phối đồ.",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\Day-Chuyen-Da-Pha-Le-Chuon-Chuon.jpg\"",
+  "Danhgia": 4,
+  "Loaihang": "Dây Chuyền Đá Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "690737b93c0ee4ee4113522c"
+  },
+  "Tensanpham": "Lư Hương Đốt Trầm Hình Con Hạc Ngậm Hoa Sen",
+  "Giaban": 89000,
+  "Mota": "Lư Hương Đốt Trầm Hạc Ngậm Sen – Tuyệt phẩm phong thủy giàu ý nghĩa. Sự kết hợp giữa Hạc (trường thọ, thanh cao) và Hoa Sen (giác ngộ, thuần tịnh). Chế tác từ hợp kim cao cấp bền đẹp. Khi đốt trầm nụ, khói lan tỏa tạo hiệu ứng huyền ảo, giúp thanh lọc không gian và an tịnh tâm trí. Thích hợp cho phòng thờ, góc thiền, hoặc làm quà tặng tâm linh trang trọng.",
+  "Tonkho": 5,
+  "hinhAnh": "images\\products\\lu-huong-dot-tram-hinh-con-hac-ngam-hoa-sen.jpg",
+  "Danhgia": 4.5,
+  "Loaihang": "Lư Xông Trầm/Nhang"
+},
+{
+  "_id": {
+    "$oid": "690738413c0ee4ee4113522d"
+  },
+  "Tensanpham": "Lư Xông Trầm Hương Bằng Điện",
+  "Giaban": 489000,
+  "Mota": "Lư Xông Trầm Hương Bằng Điện – Giải pháp hiện đại, an toàn và hiệu quả cho người yêu trầm. Sản phẩm sử dụng cơ chế gia nhiệt bằng điện (không đốt lửa), giúp giữ trọn hương thơm thuần khiết của trầm và loại bỏ khói bụi. Tương thích với trầm vụn, bột trầm, nhang không tăm. Thiết kế nhỏ gọn, dễ dùng, an toàn cho mọi không gian.",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\Lu-Xong-Tram-Huong-Bang-Dien.jpg",
+  "Danhgia": 3.9,
+  "Loaihang": "Lư Xông Trầm/Nhang"
+},
+{
+  "_id": {
+    "$oid": "6907388c3c0ee4ee4113522e"
+  },
+  "Tensanpham": "Lư Xông Trầm Hương Tượng Phật Thiền Định",
+  "Giaban": 369000,
+  "Mota": "Lư Xông Trầm Hương Tượng Phật Thiền Định – Tuyệt tác thẩm mỹ và tâm linh. Tượng Phật bán diện kết hợp hiệu ứng khói trầm chảy ngược như suối từ bi, tạo cảm giác bình yên và tĩnh tại. Khói len lỏi qua tượng tạo chiều sâu thiền định, lý tưởng để thư giãn, hành trì, khai mở năng lượng tích cực tại phòng thờ, làm việc hay phòng khách. Món quà ý nghĩa cho người tu tập và yêu trầm hương.",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\Lu-Xong-Tram-Huong-Tuong-Phat-Thien-Dinh.jpg",
+  "Danhgia": 3.8,
+  "Loaihang": "Lư Xông Trầm/Nhang"
+},
+{
+  "_id": {
+    "$oid": "69078a7b3c0ee4ee41135232"
+  },
+  "Tensanpham": "Móc Khóa Bát Tụ Bảo Xoay Phong Thủy",
+  "Giaban": 109000,
+  "Mota": "Móc Khóa Bát Tụ Bảo Xoay – Pháp khí phong thủy mini mang lại may mắn, tài lộc. Sản phẩm được chế tác tinh xảo từ đồng thau cao cấp, đảm bảo độ bền, giữ màu tốt và vẻ ngoài sang trọng. Thiết kế xoay độc đáo, vừa đẹp mắt vừa giúp thu hút năng lượng tích cực.",
+  "Tonkho": 21,
+  "hinhAnh": "images\\products\\Moc-Khoa-Bat-Tu-Bao-Xoay-Phong-Thuy.jpg",
+  "Danhgia": 4,
+  "Loaihang": "Móc Khóa Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "69078cd63c0ee4ee41135233"
+  },
+  "Tensanpham": "Móc Khóa Phong Thủy 12 Con Giáp",
+  "Giaban": 109000,
+  "Mota": "Móc Khóa Phong Thủy 12 Con Giáp – Phụ kiện nhỏ gọn, chứa đựng biểu tượng cát tường trọn vẹn. Kết hợp 12 con giáp/thần hộ mệnh, Hồ Lô bình an, 5 Đồng Xu Ngũ Đế và Lu Tụ Bảo. Mang đến sự bảo vệ, chiêu tài lộc và bình an toàn diện cho người sở hữu.",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\tuoi-thin.jpg\"",
+  "Danhgia": 3.9,
+  "Loaihang": "Móc Khóa Phong Thủy"
+},
+{
+  "_id": {
+    "$oid": "69078d8f3c0ee4ee41135234"
+  },
+  "Tensanpham": "Móc Khóa Cá Chép Ngọc Tụ Bảo Bình An",
+  "Giaban": 179000,
+  "Mota": "Móc Khóa Cá Chép & Tụ Bảo Bồn. Thiết kế tinh tế, kết hợp hai pháp khí cát tường: Cá Chép và Tụ Bảo Bồn (biểu tượng Tài lộc & Thịnh vượng). Vừa là trang sức nhỏ gọn vừa là bùa may mắn mang năng lượng bình an và tích cực cho người sở hữu.",
+  "Tonkho": 20,
+  "hinhAnh": "images\\products\\Moc-Khoa-Ca-Chep-Ngoc-Tu-Bao-Binh-An.jpg",
+  "Danhgia": 4.1,
+  "Loaihang": "Móc Khóa Phong Thủy"
+}]

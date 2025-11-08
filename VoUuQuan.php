@@ -1,3 +1,13 @@
+<?php
+require __DIR__ . '/includes/auth.php';
+start_session_once();
+// Nếu đã đăng nhập → vào trang sau đăng nhập (trangchu.php)
+// Chưa đăng nhập → vào trang login
+$cta = !empty($_SESSION['auth'])
+  ? '/project-mongo/trangchu.php'
+  : '/project-mongo/account/login.php';
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
