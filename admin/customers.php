@@ -114,6 +114,8 @@ $pages =(int)ceil($total/$limit);
 <head>
 <meta charset="utf-8">
 <title>Quản lý khách hàng</title>
+<!-- [ADDED] Font Awesome 6 cho icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="../css/style.css">
 <style>
   .page{width:90%;max-width:1200px;margin:24px auto}
@@ -141,15 +143,54 @@ $pages =(int)ceil($total/$limit);
 <body>
 <div class="page">
   <div class="page-head">
-  <h2>Quản lý khách hàng</h2>
-  <div class="actions">
-    <a href="/project-mongo/admin/dashboard.php" class="btn btn-ghost btn-icon">
-      <i class="fa-solid fa-house"></i> Tổng quan
+ <?php
+// [ADDED] Bảo đảm có ADMIN_URL / BASE_URL để tạo link
+if (!defined('ADMIN_URL')) require_once dirname(__DIR__) . '/config.php';
+
+
+// [ADDED] Xác định tab đang chọn (để tô active khi cần)
+$view = $_GET['view'] ?? 'all';
+?>
+<h2 style="color:#933838;margin-bottom:8px">Quản lý khách hàng</h2>
+
+<!-- [ADDED] HEADER CONTROLS: Tabs (trái) + Action buttons (phải) -->
+<div style="display:flex; justify-content:space-between; align-items:center; gap:16px; margin:12px 0 20px;">
+
+  <!-- [ADDED] Tabs có icon giống trang Quản lý nội dung -->
+  <div style="display:flex; gap:12px; align-items:center;">
+    <a href="<?= ADMIN_URL ?>/customers.php?view=all"
+       class="tab-pill <?= $view==='all' ? 'tab-active' : '' ?>">
+      <i class="fa-solid fa-users"></i> Tất cả
     </a>
-    <a href="/project-mongo/admin/customers.php" class="btn btn-ghost btn-icon">
-      <i class="fa-solid fa-rotate-right"></i> Tải lại
+
+    <a href="<?= ADMIN_URL ?>/customers.php?view=user&role=user"
+       class="tab-pill <?= $view==='user' ? 'tab-active' : '' ?>">
+      <i class="fa-solid fa-user"></i> Khách
+    </a>
+
+    <a href="<?= ADMIN_URL ?>/customers.php?view=admin&role=admin"
+       class="tab-pill <?= $view==='admin' ? 'tab-active' : '' ?>">
+      <i class="fa-solid fa-user-shield"></i> Quản trị viên
+    </a>
+
+    <a href="<?= ADMIN_URL ?>/customers.php?view=locked&status=locked"
+       class="tab-pill <?= $view==='locked' ? 'tab-active' : '' ?>">
+      <i class="fa-solid fa-lock"></i> Bị khoá
     </a>
   </div>
+
+  <!-- [REPLACED] Nút hành động bên phải: Tổng quan + Tải lại (có icon) -->
+  <div class="topbar" style="display:flex; gap:12px;">
+    <a href="<?= ADMIN_URL ?>/dashboard.php" class="btn btn-ghost btn-icon">
+      <i class="fa-solid fa-house"></i><span> Tổng quan</span>
+    </a>
+    <a href="<?= ADMIN_URL ?>/customers.php" class="btn btn-ghost btn-icon">
+      <i class="fa-solid fa-rotate-right"></i><span> Tải lại</span>
+    </a>
+  </div>
+</div>
+
+
 </div>
   <div class="page-body">
     <p>Quản lý tài khoản khách hàng. Bạn có thể khóa/mở khóa, reset mật khẩu hoặc xóa mềm tài khoản.</p>

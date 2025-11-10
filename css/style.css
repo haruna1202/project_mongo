@@ -173,3 +173,14 @@ footer{ background:#933838; color:#fff; text-align:center; padding:25px 0; font-
    NOTICES
    Files: admin/*.php (shared)
 =================================================================== */
+/* [ADDED] Style cho tab-pill có icon, giống chip/pill */
+.tab-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  border:1px solid #e6d9c8; border-radius:999px;
+  background:#fff; color:#5c2f2f; text-decoration:none; font-weight:600;
+  box-shadow:0 1px 0 rgba(0,0,0,0.03);
+}
+.tab-pill i{ font-size:14px }
+.tab-pill:hover{ background:#fff8f0; border-color:#e0cdb6 }
+.tab-active{ background:#933838; color:#fff; border-color:#933838 }

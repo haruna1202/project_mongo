@@ -5,6 +5,7 @@ require_login();
 $auth = $_SESSION['auth'] ?? [];
 $role = $auth['role'] ?? 'user';
 $name = $auth['name'] ?? ($auth['email'] ?? 'Khách');
+$isAdmin = ($role === 'admin'); 
 
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
@@ -36,20 +37,32 @@ header('Pragma: no-cache');
   <a href="/project-mongo/trangchu.php">Trang Chủ</a>
   <a href="#about">Giới Thiệu</a>
   <a href="#products">Sản Phẩm</a>
-  <a href="#checkout">Thanh Toán</a>
+  <?php if (!$isAdmin): ?>
+    <a href="#checkout">Thanh Toán</a>
+  <?php endif; ?>
 </nav>
+
 
 
       <div class="account">
   <i class="fa-regular fa-user"></i>
   Vai trò: <strong><?= htmlspecialchars($role) ?></strong>
-  <?php if ($role === 'admin'): ?>
-    &nbsp;|&nbsp;<a href="/project-mongo/admin/">Khu vực Admin</a>
-  <?php endif; ?>
-  &nbsp;|&nbsp;<a href="/project-mongo/logout.php">Đăng xuất</a>
-  <span class="cart"><i class="fa-solid fa-cart-shopping"></i> 0</span>
-</div>
 
+  <?php if ($isAdmin): ?>
+    &nbsp;|&nbsp;<a href="/project-mongo/admin/dashboard.php">Khu vực Admin</a>
+  <?php endif; ?>
+
+  <?php if ($role === 'guest'): ?>
+    &nbsp;|&nbsp;<a href="/project-mongo/account/login.php">Đăng nhập</a>
+  <?php else: ?>
+    &nbsp;|&nbsp;Xin chào, <strong><?= htmlspecialchars($name) ?></strong>
+    &nbsp;|&nbsp;<a href="/project-mongo/logout.php">Đăng xuất</a>
+  <?php endif; ?>
+
+  <?php if (!$isAdmin): ?>
+    <span class="cart"><i class="fa-solid fa-cart-shopping"></i> 0</span>
+  <?php endif; ?>
+</div>
     </div>
   </header>
 
@@ -191,3 +204,5 @@ leftDots.forEach(dot => {
 });
 </script>
 </html>
+<?php
+// admin/dashboard.php  
