@@ -3,9 +3,7 @@ require __DIR__ . '/includes/auth.php';
 start_session_once();
 // Nếu đã đăng nhập → vào trang sau đăng nhập (trangchu.php)
 // Chưa đăng nhập → vào trang login
-$cta = !empty($_SESSION['auth'])
-  ? '/project-mongo/trangchu.php'
-  : '/project-mongo/account/login.php';
+$cta = '/project-mongo/trangchu.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +28,7 @@ $cta = !empty($_SESSION['auth'])
 
    <!-- Nút hiệu ứng mũi tên -->
 <!-- From Uiverse.io by Li-Deheng --> 
-<button class="button" onclick="window.location.href='account/login.php'">
+<button class="button" onclick="window.location.href='trangchu.php'">
   <span>KHÁM PHÁ NGAY</span>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 43">
     <polygon
@@ -44,6 +42,7 @@ $cta = !empty($_SESSION['auth'])
     ></polygon>
   </svg>
 </button>
+
   </div>
 </body>
 </html>

@@ -1,71 +1,93 @@
 <?php
+declare(strict_types=1);
 require_once __DIR__ . '/includes/auth.php';
-require_login();
 
-$auth = $_SESSION['auth'] ?? [];
-$role = $auth['role'] ?? 'user';
-$name = $auth['name'] ?? ($auth['email'] ?? 'Khách');
-$isAdmin = ($role === 'admin'); 
+// Chỉ mở session, KHÔNG bắt đăng nhập
+start_session_once();
 
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-header('Pragma: no-cache');
+$auth = $_SESSION['auth'] ?? null;
+$isLoggedIn = !empty($auth);
+
+
+$isAdmin    = false;
+$roleLabel  = 'khách';
+$nameLabel  = 'Khách';
+
+
+if ($isLoggedIn) {
+    $rawRole = strtolower((string)($auth['role'] ?? 'user'));
+    $isAdmin = ($rawRole === 'admin');
+
+
+    $roleLabel = $isAdmin ? 'admin' : 'user';
+    $nameLabel = $auth['name'] ?? ($auth['email'] ?? 'Người dùng');
+}
 ?>
-
+<!-- HTML TRANG CHỦ -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vô Ưu Quán - Vật phẩm Phật giáo</title>
-
-  <!-- FONT + CSS -->
   <link rel="stylesheet" href="/project-mongo/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/project-mongo/assets/vendor/fontawesome/css/all.min.css">
 </head>
-
-<body>
-
   <!-- HEADER -->
+<body>
   <header class="navbar">
-    <div class="nav-content">
-      <div class="logo">
-        <img src="/project-mongo/images/VoUuQuan.svg" alt="Vô Ưu Quán Logo">
-      </div>
-
-      <nav class="menu">
-  <a href="/project-mongo/trangchu.php">Trang Chủ</a>
-  <a href="#about">Giới Thiệu</a>
-  <a href="#products">Sản Phẩm</a>
-  <?php if (!$isAdmin): ?>
-    <a href="#checkout">Thanh Toán</a>
-  <?php endif; ?>
-</nav>
-
-
-
-      <div class="account">
-  <i class="fa-regular fa-user"></i>
-  Vai trò: <strong><?= htmlspecialchars($role) ?></strong>
-
-  <?php if ($isAdmin): ?>
-    &nbsp;|&nbsp;<a href="/project-mongo/admin/dashboard.php">Khu vực Admin</a>
-  <?php endif; ?>
-
-  <?php if ($role === 'guest'): ?>
-    &nbsp;|&nbsp;<a href="/project-mongo/account/login.php">Đăng nhập</a>
-  <?php else: ?>
-    &nbsp;|&nbsp;Xin chào, <strong><?= htmlspecialchars($name) ?></strong>
-    &nbsp;|&nbsp;<a href="/project-mongo/logout.php">Đăng xuất</a>
-  <?php endif; ?>
-
-  <?php if (!$isAdmin): ?>
-    <span class="cart"><i class="fa-solid fa-cart-shopping"></i> 0</span>
-  <?php endif; ?>
-</div>
+  <div class="nav-content">
+    <div class="logo">
+      <img src="/project-mongo/images/VoUuQuan.svg" alt="Vô Ưu Quán Logo">
     </div>
-  </header>
 
+    <nav class="menu">
+      <a href="/project-mongo/trangchu.php">Trang Chủ</a>
+      <a href="/project-mongo/gioithieu.php">Giới Thiệu</a>
+      <a href="/project-mongo/sanpham.php">Sản Phẩm</a>
+     <?php if (!$isAdmin): ?>
+    <?php if ($isLoggedIn): ?>
+     
+      <a href="/project-mongo/checkout.php">Thanh Toán</a>
+    <?php else: ?>
+      <a href="/project-mongo/account/login.php?next=/project-mongo/checkout.php">
+        Thanh Toán
+      </a>
+    <?php endif; ?>
+  <?php endif; ?>
+    </nav>
+
+    <div class="account">
+      <i class="fa-regular fa-user"></i>
+
+      <?php if ($isLoggedIn): ?>
+        <!-- ĐÃ ĐĂNG NHẬP -->
+        Vai trò:
+        <strong><?= htmlspecialchars(ucfirst($roleLabel)) ?></strong>
+        &nbsp;|&nbsp;
+        Xin chào, <strong><?= htmlspecialchars($nameLabel) ?></strong>
+        <?php if ($isAdmin): ?>
+          &nbsp;|&nbsp;
+          <a href="/project-mongo/admin/dashboard.php">Khu vực Admin</a>
+        <?php endif; ?>
+        &nbsp;|&nbsp;
+        <a href="/project-mongo/logout.php">Đăng xuất</a>
+      <?php else: ?>
+        <!-- CHƯA ĐĂNG NHẬP -->
+        <a href="/project-mongo/account/login.php">Đăng nhập</a>
+        &nbsp;|&nbsp;
+        <a href="/project-mongo/account/register.php">Đăng ký</a>
+      <?php endif; ?>
+
+      <?php if (!$isAdmin): ?>
+        &nbsp;|&nbsp;
+        <span class="cart">
+          <i class="fa-solid fa-cart-shopping"></i> 0
+        </span>
+      <?php endif; ?>
+    </div>
+  </div>
+</header>
 <!--BANNER ZONE -->
 <section class="banner">
   <div class="banner-container">
@@ -115,51 +137,66 @@ header('Pragma: no-cache');
   <!-- PRODUCT GRID -->
 <section class="categories" id="products">
   <div class="container">
-    <h2>Sản Phẩm Tại Vô Ưu Quán</h2>
+    <h2>Sản Phẩm Tại Vô ưu Quán</h2>
     <div class="grid">
 
-      <div class="item">
+      <!-- Vòng Tay Phong Thủy -->
+      <a class="item" href="/project-mongo/sanpham.php?loai=<?= urlencode('Vòng Tay Phong Thủy') ?>">
         <img src="/project-mongo/images/categories/vong.png" alt="Vòng Tay Phong Thủy">
         <p>Vòng Tay Phong Thủy</p>
-      </div>
+      </a>
 
-      <div class="item">
+      <!-- Dây Chuyền Đá Phong Thủy -->
+      <a class="item" href="/project-mongo/sanpham.php?loai=<?= urlencode('Dây Chuyền Đá Phong Thủy') ?>">
         <img src="/project-mongo/images/categories/day_chuyen_aqua.png" alt="Dây Chuyền Đá Phong Thủy">
         <p>Dây Chuyền Đá Phong Thủy</p>
-      </div>
+      </a>
 
-      <div class="item">
+      <!-- Lư Xông Trầm / Nhang -->
+      <a class="item" href="/project-mongo/sanpham.php?loai=<?= urlencode('Lư Xông Trầm/Nhang') ?>">
         <img src="/project-mongo/images/categories/luhuong.png" alt="Lư Xông Trầm / Nhang">
         <p>Lư Xông Trầm / Nhang</p>
-      </div>
+      </a>
 
-      <div class="item">
+      <!-- Móc Khóa Phong Thủy -->
+      <a class="item" href="/project-mongo/sanpham.php?loai=<?= urlencode('Móc Khóa Phong Thủy') ?>">
         <img src="/project-mongo/images/categories/mockhoa.png" alt="Móc Khóa Phong Thủy">
         <p>Móc Khóa Phong Thủy</p>
-      </div>
+      </a>
 
-      <div class="item">
+      <!-- Tượng Phật Mini -->
+      <a class="item" href="/project-mongo/sanpham.php?loai=<?= urlencode('Tượng Phật Mini') ?>">
         <img src="/project-mongo/images/categories/tuong.png" alt="Tượng Phật Mini">
         <p>Tượng Phật Mini</p>
-      </div>
+      </a>
 
     </div>
   </div>
 </section>
 
 
+
   <!-- FOOTER -->
-  <footer>
+  <footer class ="site-footer">
     <div class="container footer-content">
-      <p>© 2025 Vô Ưu Quán – Vật phẩm Phật giáo. Sản phẩm cam kết hoàn toàn từ tự nhiên.</p>
+      <p>&copy; <?= date('Y') ?> Vô Ưu Quán – Vật phẩm Phật giáo. Sản phẩm cam kết hoàn toàn từ tự nhiên.</p>
+    <ul class = "footer-list">
+      
+      <li><i class="fa-solid fa-map-marker-alt fa-sm" aria-hidden="true"></i>  256 Nguyễn Văn Cừ - Phường An Hoà - Quận Ninh Kiều - TPCT, Can Tho, Vietnam</li>
+      <li><i class="fa-solid fa-phone fa-sm" aria-hidden="true"></i> Hotline: <a href="tel:0389883981" style="color:#fff"> 0389 883 981</a></li>
+      <li><i class="fa-solid fa-envelope fa-fm"></i> Email:<a href ="mailto:vouuquanvn@gmail.com" style="color:#fff"> vouuquan@gmail.com</a></li>
+  </ul>     
     </div>
   </footer>
-  
-
-
+<style>
+.footer-list{
+  list-style: none;   /* bỏ bullet */
+  margin: 0;          /* gọn khoảng cách */
+}
+</style>
 </body>
-
 <script>
+// Hiệu ứng chuyển banner phải
 // 🌿 Slide bên trái (2 ảnh + dot chọn)
 const leftImages = [
   "/project-mongo/images/product/TRANG_BIA.png",
@@ -203,6 +240,8 @@ leftDots.forEach(dot => {
   });
 });
 </script>
+</body>
 </html>
 <?php
-// admin/dashboard.php  
+// End of trangchu.php
+?>

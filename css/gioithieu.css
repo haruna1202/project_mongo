@@ -1,0 +1,35 @@
+
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .page{background:#fffaf3;padding:40px 0 60px}
+    .section-title{ text-align:center;color:#933838;margin:30px auto 10px;
+      font-size:clamp(22px,2.6vw,34px);font-weight:700}
+    .hr-soft{width:120px;height:2px;margin:8px auto 28px;background:#c9a36a;border:0;opacity:.6;border-radius:2px}
+    .hero-banner{display:block;width:min(100%,1100px);max-height:480px;object-fit:cover;height:auto;margin:0 auto 40px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+    .list-clean{margin:12px 0 0 18px}
+    .list-clean li{margin:6px 0}
+
+    /* Card liên hệ */
+    .contact-card{background:#fff;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.08);padding:18px 20px;margin-top:16px;line-height:1.8}
+    .contact{--c:#A0522D}
+    .contact p{color:var(--c);font-size:1rem;margin:8px 0}
+    .contact a,.contact a:visited{color:var(--c);text-decoration:none}
+    .contact a:hover{color:#7b3a22;text-decoration:underline}
+    .contact i{color:var(--c);margin-right:8px;width:24px;text-align:center}
+
+    /* Bố cục 2 cột + thanh dọc phân chia (desktop) */
+    .two-col{position:relative;display:grid;grid-template-columns:1.35fr .85fr;gap:32px;align-items:start}
+    @media (min-width:901px){
+      .two-col::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#d7b49e;transform:translateX(-1px)}
+      .two-col> :first-child{padding-right:24px}
+      .two-col> :last-child{padding-left:24px}
+    }
+    @media (max-width:900px){
+      .two-col{grid-template-columns:1fr;gap:20px}
+      .two-col::before{display:none}
+      .two-col> :last-child{border-top:2px solid #d7b49e;padding-top:14px;margin-top:6px}
+    }
+
+    .section-h2{color:#933838;margin:0 0 10px;font-size:1.35rem;font-weight:700}
+    .section-h3{color:#933838;margin:0 0 10px;font-size:1.15rem;font-weight:700}
+    .side-section{border-top:2px solid #d7b49e;padding-top:14px;margin-top:18px}
+    .side-section:first-child{border-top:none;padding-top:0;margin-top:0}

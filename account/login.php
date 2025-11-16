@@ -1,3 +1,24 @@
+<?php
+// === BOOTSTRAP SESSION + BASE_URL ===
+if (!defined('BASE_URL')) define('BASE_URL', '/project-mongo');
+
+if (session_status() === PHP_SESSION_NONE) {
+  session_name('vouu_sess'); // tên session cố định cho cả site
+  session_set_cookie_params([
+    'lifetime' => 0,                 
+    'path'     => '/project-mongo',  
+    'secure'   => false,             
+    'httponly' => true,
+    'samesite' => 'Lax',
+  ]);
+  session_start();
+}
+// === XỬ LÝ LOGIC ĐĂNG NHẬP ===
+$next = $_GET['next'] ?? $_GET['redirect'] ?? (BASE_URL . '/trangchu.php');
+
+// Giữ lại email nếu từ login_handler redirect về
+$prefillEmail = $_GET['email'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,11 +28,25 @@
 
   <link rel="stylesheet" href="../css/login.css" />
 
-  <!-- [CHANGE] Thêm CSS nho nhỏ cho khung message -->
+  <!-- Khung message -->
   <style>
-    .msg{padding:10px 12px;border-radius:8px;margin:8px 0 12px;font-weight:600;line-height:1.4}
-    .msg.success{background:#e7f6ed;color:#166534;border:1px solid #86efac}
-    .msg.error{background:#fde8e8;color:#991b1b;border:1px solid #fecaca}
+    .msg{
+      padding:10px 12px;
+      border-radius:8px;
+      margin:8px 0 12px;
+      font-weight:600;
+      line-height:1.4
+    }
+    .msg.success{
+      background:#e7f6ed;
+      color:#166534;
+      border:1px solid #86efac
+    }
+    .msg.error{
+      background:#fde8e8;
+      color:#991b1b;
+      border:1px solid #fecaca
+    }
   </style>
 </head>
 
@@ -22,7 +57,7 @@
       <div class="container">
         <div class="heading">ĐĂNG NHẬP</div>
 
-        <!-- Hiển thị thông báo reset mật khẩu thành công -->
+        <!-- Thông báo reset mật khẩu thành công -->
         <?php if (!empty($_GET['msg']) && $_GET['msg'] === 'resetok'): ?>
           <div class="msg success">Đặt lại mật khẩu thành công! Vui lòng đăng nhập.</div>
         <?php endif; ?>
@@ -37,14 +72,11 @@
             ];
             $msg = $map[$_GET['err']] ?? 'Đăng nhập thất bại.';
         ?>
-          <!-- [CHANGE] Dùng class .msg.error để áp dụng CSS thay vì inline-style -->
-          <div class="msg error"><?= htmlspecialchars($msg) ?></div>
+          <div class="msg error"><?= htmlspecialchars($msg, ENT_QUOTES, 'UTF-8') ?></div>
         <?php endif; ?>
 
         <!-- Form đăng nhập -->
-        <!-- [CHANGE] Giữ nguyên action tới file handler trong cùng thư mục /account -->
         <form class="form" action="login_handler.php" method="POST" novalidate>
-          <!-- [CHANGE] Giữ lại email người dùng đã nhập nếu bị lỗi -->
           <input
             placeholder="Email"
             id="email"
@@ -54,7 +86,7 @@
             required
             autofocus
             autocomplete="email"
-            value="<?= isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '' ?>"
+            value="<?= htmlspecialchars($prefillEmail, ENT_QUOTES, 'UTF-8') ?>"
           />
 
           <input
@@ -66,6 +98,10 @@
             required
             autocomplete="current-password"
           />
+
+          <!-- Gửi kèm URL cần quay lại sau đăng nhập -->
+          <input type="hidden" name="next"
+                 value="<?= htmlspecialchars($next, ENT_QUOTES, 'UTF-8') ?>">
 
           <div class="forgot-password"><a href="forgot_password.php">Quên mật khẩu?</a></div>
 

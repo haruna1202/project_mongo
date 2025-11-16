@@ -9,18 +9,29 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   header('Location: /project-mongo/account/login.php'); exit;
 }
 
+// LẤY THÊM THÔNG TIN NEXT (URL CẦN QUAY LẠI)
+$nextRaw = trim($_POST['next'] ?? '');
+
 $email = strtolower(trim($_POST['email'] ?? ''));
 $pass  = (string)($_POST['password'] ?? '');
 
 if ($email === '' || $pass === '') {
-  header('Location: /project-mongo/account/login.php?err=missing'); exit;
+  $q = '/project-mongo/account/login.php?err=missing';
+  if ($nextRaw !== '') {
+    $q .= '&next=' . urlencode($nextRaw);
+  }
+  header('Location: ' . $q); exit;
 }
 
 $users = col_users(); // <- đảm bảo hàm này trả về collection 'nguoidung'
 $user  = $users->findOne(['$or' => [['Email'=>$email], ['email'=>$email]]]);
 
 if (!$user) {
-  header('Location: /project-mongo/account/login.php?err=notfound'); exit;
+  $q = '/project-mongo/account/login.php?err=notfound';
+  if ($nextRaw !== '') {
+    $q .= '&next=' . urlencode($nextRaw);
+  }
+  header('Location: ' . $q); exit;
 }
 
 $dbPass = $user['Matkhau'] ?? $user['password'] ?? '';
@@ -31,7 +42,11 @@ if (is_string($dbPass) && $dbPass !== '') {
                                      : hash_equals($dbPass, $pass);
 }
 if (!$ok) {
-  header('Location: /project-mongo/account/login.php?err=wrongpwd'); exit;
+  $q = '/project-mongo/account/login.php?err=wrongpwd';
+  if ($nextRaw !== '') {
+    $q .= '&next=' . urlencode($nextRaw);
+  }
+  header('Location: ' . $q); exit;
 }
 
 /* ---- Chuẩn hoá dữ liệu trước khi nhét vào session ---- */
@@ -40,7 +55,25 @@ $data['email'] = strtolower($data['Email'] ?? $data['email'] ?? $email);
 $data['name']  = $data['Hoten'] ?? $data['Hovaten'] ?? $data['name'] ?? ($data['username'] ?? 'Người dùng');
 $data['role']  = strtolower($data['VaiTro'] ?? $data['role'] ?? 'user');
 
-do_login($data);                  // <- auth.php sẽ regenerate id & set $_SESSION['auth']
+start_session_once();         
+$_SESSION['auth'] = $data;
 
-header('Location: /project-mongo/trangchu.php');  // luôn về trang chủ
+$role = $data['role'] ?? 'user';
+
+if ($role === 'admin') {
+    $redirect = '/project-mongo/admin/dashboard.php';
+
+} else {
+  $redirect = '/project-mongo/trangchu.php';
+   if ($nextRaw !== '') {
+        $redirect = $nextRaw;
+    if (preg_match('~^https?://~i', $nextRaw)) {
+            $host = $_SERVER['HTTP_HOST'] ?? '';
+            if (stripos($nextRaw, $host) === false) {
+                $redirect = '/project-mongo/trangchu.php';
+            }
+        }
+    }
+}
+header('Location: ' . $redirect);
 exit;
