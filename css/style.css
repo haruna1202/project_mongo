@@ -1,232 +1,295 @@
-/* === GLOBAL RESET & FONT === */
+/* ===================================================================
+   GLOBAL RESET + FONT (used by ALL pages)
+   Files: VoUuQuan.php, admin/*.php
+=================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-* { margin:0; padding:0; box-sizing:border-box; }
-:root {
-  --font-sans: 'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
-html, body {
-  font-family: var(--font-sans);
-  background: #fdf3e2;
-  color: #3A3A3A;
-  line-height: 1.6;
-}
-.container { width:90%; max-width:1200px; margin:auto; }
 
-/* === NAVBAR === */
-.navbar {
-  background:#933838;
-  border-bottom:1px solid #EDE9DF;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-.nav-content {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  width:90%; max-width:1300px;
-  height:80px;
-  margin:0 auto;
-}
-.menu { display:flex; gap:40px; }
-.menu a { color:#fff; text-decoration:none; font-weight:500; transition:.2s; }
-.menu a:hover { color:#ffd; }
-.account {
-  color:#fff;
-  font-size:15px;
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.account a { color:#fff; text-decoration:none; }
-.account a:hover { opacity:.7; }
+*{ margin:0; padding:0; box-sizing:border-box; }
+:root{ --font-sans: 'Quicksand',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; }
+html,body{ font-family:var(--font-sans); background:#fdf3e2; color:#3A3A3A; line-height:1.6; }
 
-/* === BANNER HOME === */
-.banner { background:#fff8f0; padding:30px 0; }
-.banner-container {
-  display:flex;
-  align-items:stretch;
-  gap:20px;
-  max-width:1200px;
-  margin:auto;
-}
-.banner-left {
-  flex:1 1 68%;
-  position:relative;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 4px 10px rgba(0,0,0,.1);
-}
-.banner-left img {
-  width:100%; height:100%; aspect-ratio:16/9;
-  object-fit:cover;
-  border-radius:18px;
-  transition:opacity 1s;
-}
-.banner-left img.fade-out { opacity:0; }
-.banner-dots-left{
-  position:absolute;
-  bottom:10px; left:50%; transform:translateX(-50%);
-  display:flex; gap:10px;
-}
-.dot-left{
-  width:10px; height:10px;
-  background:#ddd;
-  border-radius:50%; cursor:pointer;
-  transition:.3s;
-}
+.container{ width:90%; max-width:1200px; margin:auto; }
+
+/* ===================================================================
+   HEADER (PUBLIC + ADMIN base)
+   Files: VoUuQuan.php (public), admin/partials/admin_topbar.php (admin)
+=================================================================== */
+.navbar{ background:#933838; border-bottom:1px solid #EDE9DF; position:sticky; top:0; z-index:1000; }
+.nav-content{ display:flex; justify-content:space-between; align-items:center; width:90%; max-width:1300px; margin:0 auto; height:80px; }
+/* PUBLIC main menu */
+.menu{ display:flex; gap:40px; }
+.menu a{ text-decoration:none; color:#fff; font-weight:500; transition:color .2s; }
+.menu a:hover{ color:#ffd; }
+
+/* PUBLIC account (right corner) */
+.account{ font-size:15px; color:#fff; display:flex; align-items:center; gap:8px; }
+.account a{ color:#fff; text-decoration:none; }
+.account a:hover{ opacity:.7; }
+
+/* ===================================================================
+   BANNER (PUBLIC Home page)
+   File: VoUuQuan.php
+=================================================================== */
+.banner{ background:#fff8f0; padding:30px 0; }
+
+/* layout: left (70%) slideshow + right (cards) */
+.banner-container{ display:flex; justify-content:center; align-items:stretch; gap:20px; max-width:1200px; margin:0 auto; }
+
+/* left big image */
+.banner-left{ position:relative; border-radius:18px; overflow:hidden; box-shadow:0 4px 10px rgba(0,0,0,.1); flex:1 1 68%; }
+.banner-left img{ width:100%; height:100%; aspect-ratio:16/9; object-fit:cover; transition:opacity 1s ease-in-out; border-radius:18px; }
+.banner-left img.fade-out{ opacity:0; }
+
+/* dots under left image */
+.banner-dots-left{ position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:10px; }
+.dot-left{ width:10px; height:10px; background:#ddd; border-radius:50%; cursor:pointer; transition:all .3s ease; }
 .dot-left.active{ background:#933838; transform:scale(1.3); }
 
-.banner-right{
-  width:32%; display:flex; flex-direction:column; gap:8px;
-}
-.banner-item{
-  flex:1;
-  background:#fff8f0;
-  border-radius:18px;
-  aspect-ratio:39/20;
-  overflow:hidden;
-  box-shadow:0 4px 10px rgba(0,0,0,.1);
-  display:flex;
-  justify-content:center;
-}
-.banner-item img{
-  width:100%; height:100%; object-fit:cover;
-  border-radius:18px;
-  transition:.3s;
-}
+/* right column */
+.banner-right{ width:32%; display:flex; flex-direction:column; justify-content:space-between; }
+.banner-item{ flex:1; border-radius:18px; overflow:hidden; background:#fff8f0; box-shadow:0 4px 10px rgba(0,0,0,.1); aspect-ratio:39/20; display:flex; align-items:center; justify-content:center; }
+.banner-item + .banner-item{ margin-top:8px; }
+.banner-item img{ width:100%; height:100%; object-fit:cover; display:block; border-radius:18px; transition:transform .3s ease, opacity .8s ease-in-out; }
 .banner-item img:hover{ transform:scale(1.03); }
 
-@media(max-width:900px){
+/* BANNER responsive */
+@media (max-width:900px){
   .banner-container{ flex-direction:column; }
-  .banner-right{ width:100%; flex-direction:row; }
+  .banner-right{ width:100%; flex-direction:row; gap:15px; }
+  .banner-item{ aspect-ratio:39/20; }
 }
 
-/* === ABOUT SECTION === */
+/* ===================================================================
+   ABOUT SECTION (PUBLIC)
+   File: VoUuQuan.php
+=================================================================== */
 .about{ background:#fffaf3; padding:80px 0; }
-.about-content{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:50px;
-}
-.about-text h2{ color:#933838; margin-bottom:15px; font-size:28px; }
+.about-content{ display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:50px; }
+.about-text h2{ font-size:28px; color:#933838; margin-bottom:15px; }
 .about-text p{ margin-bottom:20px; }
-.about-text ul{ list-style:disc; margin-left:20px; }
-.about-image img{
-  width:100%; border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
+.about-text ul{ list-style:disc; margin-left:20px; color:#3A3A3A; }
+.about-image img{ width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,.15); }
 
-/* === CATEGORY GRID === */
-.categories{
-  text-align:center;
-  padding:60px 0;
-  background:#fff7ec;
-}
+/* ===================================================================
+   PRODUCT GRID (PUBLIC)
+   File: VoUuQuan.php
+=================================================================== */
+.categories{ text-align:center; padding:60px 0; background:#fff7ec; }
 .categories h2{ color:#933838; font-weight:700; margin-bottom:40px; }
-.categories .grid{
-  display:flex; flex-wrap:wrap;
-  justify-content:center;
-  gap:30px;
-}
-.categories .item{
-  width:200px;
-  background:#fff;
-  padding:20px 10px;
-  border-radius:16px;
-  box-shadow:0 4px 8px rgba(0,0,0,.08);
-  transition:.3s;
-}
-.categories .item:hover{
-  transform:translateY(-5px);
-  box-shadow:0 6px 12px rgba(0,0,0,.15);
-}
-.categories img{
-  width:100%; height:160px;
-  object-fit:contain;
-  border-radius:12px;
-  margin-bottom:10px;
-}
-.categories p{ font-weight:600; margin-top:5px; }
+.categories .grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:30px; }
+.categories .item{ background:#fff; border-radius:16px; box-shadow:0 4px 8px rgba(0,0,0,.08); width:200px; padding:20px 10px; transition:transform .3s ease, box-shadow .3s ease; }
+.categories .item:hover{ transform:translateY(-5px); box-shadow:0 6px 12px rgba(0,0,0,.15); }
+.categories img{ width:100%; height:160px; object-fit:contain; border-radius:12px; margin-bottom:10px; display:block; }
+.categories p{ font-weight:600; color:#3a3a3a; font-size:1rem; margin-top:5px; }
 
-/* === INTRO SECTION === */
-.intro{
-  max-width:1100px;
-  margin:60px auto;
-  padding:20px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:40px;
-}
-.intro-text{ flex:1 1 60%; }
-.intro-image{ flex:1 1 40%; display:flex; justify-content:center; }
-.intro-image img{
-  width:100%; border-radius:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,.15);
-  transition:.3s;
-}
+/* ===================================================================
+   INTRO (PUBLIC – two-column section below banner)
+   File: VoUuQuan.php
+=================================================================== */
+.intro{ display:flex; align-items:center; justify-content:space-between; gap:40px; max-width:1100px; margin:60px auto; padding:20px; flex-wrap:wrap; }
+.intro-text{ flex:1 1 60%; color:#3A3A3A; line-height:1.7; }
+.intro-text h2{ color:#933838; font-size:1.9rem; margin-bottom:15px; line-height:1.4; word-spacing:1px; }
+.intro-image{ flex:1 1 40%; display:flex; justify-content:center; align-items:center; overflow:hidden; max-width:1200px; max-height:1200px; margin:0 auto; }
+.intro-image img{ width:100%; height:auto; object-fit:contain; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,.15); transition:transform .3s ease; }
 .intro-image img:hover{ transform:scale(1.03); }
 
-@media(max-width:992px){
+@media (max-width:992px){
   .about-content{ grid-template-columns:1fr; text-align:center; }
+  .about-image{ order:-1; }
   .intro{ flex-direction:column; text-align:center; }
+  .intro-image{ max-width:260px; max-height:200px; }
 }
 
-/* === FOOTER === */
-footer{
-  background:#933838;
-  color:#fff;
-  text-align:center;
-  padding:25px 0;
-  font-size:15px;
+@media (max-width:600px){
+  .categories .grid{ gap:20px; }
+  .categories .item{ width:45%; }
 }
 
-/* === ADMIN STYLES === */
-.navbar.adminbar .logo img{ height:150px !important; }
-.cards-4{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-.card{
-  background:#fff;
-  border-radius:16px;
-  padding:16px;
-  border:1px solid #f0e7d7;
-  box-shadow:0 4px 14px rgba(120,60,10,.08);
+/* ===================================================================
+   FOOTER
+   Files: VoUuQuan.php (public), admin/*.php (shared)
+=================================================================== */
+footer{ background:#933838; color:#fff; text-align:center; padding:25px 0; font-size:15px; border-top:1px solid #EDE9DF; }
+
+/* ===================================================================
+   ADMIN TOPBAR (layout + logo)
+   File: admin/partials/admin_topbar.php
+=================================================================== */
+.adminbar{ background:#933838; }
+
+/* Reuse size like public: container height controls image height */
+
+/* ADMIN menus */
+.admin-menu{ display:flex; justify-content:center; gap:28px; }
+.admin-menu a{ color:#fff; text-decoration:none; font-weight:600; }
+.admin-menu a:hover{ opacity:.95; }
+.admin-account{ display:flex; gap:12px; align-items:center; color:#fff; }
+.admin-account a{ color:#fff; text-decoration:none; }
+.navbar.adminbar .brand-fallback .brand-text,
+.navbar.adminbar .brand-text{ color:#ffdca8; font-weight:700; font-size:20px; }
+
+
+/* ===================================================================
+   ADMIN CONTENT (cards/KPI)
+   Files: admin/dashboard.php (and can reuse for other admin pages)
+=================================================================== */
+.admin-content{ padding:24px 0; }
+.cards-4{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:8px; }
+.card{ background:#fff; border:1px solid #f0e7d7; border-radius:16px; padding:16px; box-shadow:0 4px 14px rgba(120,60,10,.08); }
+.kpi .big{ font-size:24px; font-weight:800; margin-top:4px; }
+/* CHỈ áp dụng 250px cho header PUBLIC (không áp cho admin) */
+/* Chỉ trang chủ dùng logo 250px */
+.navbar:not(.adminbar) .logo img {
+  height: 250px;
+  width: auto;
+  display: inline-block;
+  object-fit: contain;
 }
 
-/* === TWO COL (gioithieu.php) === */
+/* Admin header: logo gọn và thanh cao thoáng */
+.navbar.adminbar .logo img { height: 150px !important; width: auto; display: block; } /*scale logo*/
+.navbar.adminbar .nav-content { height: 72px; }
+
+/* ==== DASHBOARD layout (admin/dashboard.php) ==== */
+.grid-2{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:14px}
+.card-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.card-hd .link{font-weight:700;text-decoration:none;color:#7e3131}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th,.tbl td{padding:10px 12px;border-bottom:1px solid #f0e7d7;text-align:left}
+.tbl tr:last-child td{border-bottom:0}
+.badge{padding:4px 8px;border-radius:999px;background:#f2ebe0;font-weight:700}
+.list{list-style:none;padding-left:0;display:flex;flex-direction:column;gap:6px}
+.list .sub{list-style:none;padding-left:12px;margin-top:6px;display:flex;flex-direction:column;gap:4px}
+@media (max-width: 992px){ .grid-2{grid-template-columns:1fr} }
+/* ===================================================================
+*/
+
+.topbar{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.btn-icon{display:inline-flex;align-items:center;gap:6px}
+.btn-ghost{background:transparent;border:1px solid #933838;color:#933838;padding:6px 12px;border-radius:6px;text-decoration:none;font-weight:600;transition:background .2s,color .2s,border-color .2s}
+.btn-ghost:hover{background:#933838;color:#fff;border-color:#933838}
+
+/* ===================================================================
+   NOTICES
+   Files: admin/*.php (shared)
+=================================================================== */
+/* [ADDED] Style cho tab-pill có icon, giống chip/pill */
+.tab-pill{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  border:1px solid #e6d9c8; border-radius:999px;
+  background:#fff; color:#5c2f2f; text-decoration:none; font-weight:600;
+  box-shadow:0 1px 0 rgba(0,0,0,0.03);
+}
+.tab-pill i{ font-size:14px }
+.tab-pill:hover{ background:#fff8f0; border-color:#e0cdb6 }
+.tab-active{ background:#933838; color:#fff; border-color:#933838 }
+
+/* ===================================================================
+    thanh dọc cho gioithieu.php
+      File: gioithieu.php
+=================================================================== */
+/* Chia 2 cột */
 .two-col{
-  position:relative;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:32px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* hoặc 1.35fr .85fr nếu muốn trái rộng hơn */
+  gap: 32px;
+  align-items: start;
 }
-@media(min-width:901px){
-  .two-col::before{ content:none !important; }
+
+/* Desktop: CHỈ dùng border-left, tắt ::before */
+@media (min-width: 901px){
+  .two-col::before{ content: none !important; }   /* tắt đường kẻ cũ */
+
+  .two-col > :first-child{ padding-right: 24px; }
   .two-col > :last-child{
-    border-left:2px solid #d7b49e;
-    padding-left:24px;
-  }
-}
-@media(max-width:900px){
-  .two-col{ grid-template-columns:1fr; gap:20px; }
-  .two-col > :last-child{
-    border-top:2px solid #d7b49e;
-    padding-top:14px;
+    padding-left: 24px;
+    border-left: 2px solid #d7b49e;               /* thanh dọc chia nửa */
   }
 }
 
-/* === MINI CART === */
-.mini-cart-overlay{
-  position:fixed;
-  inset:0;
-  display:none;
-  background:rgba(0,0,0,.35);
-  justify-content:flex-end !important;
-  align-items:stretch !important;
-  z-index:9999;
+/* Mobile giữ như cũ */
+@media (max-width: 900px){
+  .two-col{ grid-template-columns: 1fr; gap: 20px; }
+  .two-col::before{ display: none !important; }
+  .two-col > :last-child{
+    border-top: 2px solid #d7b49e;
+    padding-top: 14px;
+    margin-top: 6px;
+    border-left: 0;                                /* nhớ tắt border-left trên mobile */
+  }
 }
-.mini-cart-overlay.show{ display:flex !important; }
+/* ===================================================================
+   FOOTER EDITS
+   File: trangchu.php
+   /* ===== FIX FOOTER Ở DƯỚI CÙNG ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-main {
+  flex: 1;
+}
+
+.site-footer {
+  background: #933838;
+  color: #fff;
+  padding: 20px 0;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-list li {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.footer-list a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-list a:hover {
+  text-decoration: underline;
+}
+.mini-cart-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  justify-content: flex-end !important;   /* ép về bên phải */
+  align-items: stretch !important;        /* cao full màn hình */
+  z-index: 9999;
+}
+
+/* Khi JS thêm class .show -> hiện + dùng layout flex */
+.mini-cart-overlay.show{
+  display: flex !important;
+}
